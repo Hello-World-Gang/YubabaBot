@@ -57,8 +57,11 @@ public class Bot extends ListenerAdapter
     			tc.sendMessage("!nick Username- Sets someone elses username!").queue();
     			tc.sendMessage("!gif- Plays a Spirited away gif").queue();
     			tc.sendMessage("!hello- Yubaba says hi!").queue();
-    			
+    			tc.sendMessage("!hello bot- Yubaba says hi to a bot!").queue();
+    			tc.sendMessage("!hello human- Yubaba says hi to a human!").queue();
     		}
+
+    		
     	}
     }
 }
