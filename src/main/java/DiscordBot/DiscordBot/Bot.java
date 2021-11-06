@@ -34,7 +34,7 @@ public class Bot extends ListenerAdapter
     	TextChannel tc = event.getTextChannel();
     	Message msg = event.getMessage();
     	if (user.isBot()) return;
-        if( "summonYubaba-basan".equals(msg.getContentRaw())){
+        if( "summonYubaba-san".equals(msg.getContentRaw())){
             tc.sendMessage("Hello, " + user.getAsMention()).queue();
             String newName = user.getName();
             int subIndex=0;
@@ -45,11 +45,11 @@ public class Bot extends ListenerAdapter
                     break;
                 }
             }
-            tc.sendMessage("You're "+newName+", huh?  What an extravagant name.").queue();
-            tc.sendMessage("Thanks for signing up.").queue();
+            tc.sendMessage("You're "+newName+", huh?  What an extravagant name.\n Thanks for signing up.").queue();
             event.getMember().modifyNickname(newName.substring(0,subIndex)).queue();
             tc.sendMessage("From now on, you'll be "+newName.substring(0,subIndex)).queue();
-            tc.sendMessage(newName+". You got that? "+"You're "+newName+". Answer me, "+newName+"!!").queue();
+            tc.sendMessage(newName.substring(0,subIndex)+". You got that? "+"You're "+newName.substring(0,subIndex)+""
+                    + ". Answer me, "+newName.substring(0,subIndex)+"!!").queue();
         }
     }
 }
