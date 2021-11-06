@@ -16,8 +16,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class Bot extends ListenerAdapter 
 {
-	ArrayList<String> names = new ArrayList<String>(Arrays.asList("Sen", "Chihiro", "Yubaba"));
-	
     public static void main( String[] args ) throws LoginException, InterruptedException
     {
     	JDA jda = JDABuilder.createDefault("OTA2NTcxMzE0NjIwNDI4MzQ5.YYakVA.Rl59i7XERTTJ__ATxX5RqURgkLE")
@@ -33,9 +31,7 @@ public class Bot extends ListenerAdapter
     
     public String getNickName(User user) {
     	String nickname = user.getAsMention().toString();
-    	
-    	
-		return nickname.substring(0, 2);
+        return nickname.substring(0, 1);
     }
     
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -43,37 +39,18 @@ public class Bot extends ListenerAdapter
     	TextChannel tc = event.getTextChannel();
     	Message msg = event.getMessage();
     	if (user.isBot()) return;
-    	if (msg.getContentRaw().charAt(0) == '!') {
-    		String[] args = msg.getContentRaw().substring(1).split(" ");
-    		if (args.length <= 0) return;
-    		if (args[0].equalsIgnoreCase("nickname")) {
-    			tc.sendMessage("Hello, " + user.getAsMention()).queue();
-    			event.getMember().modifyNickname(getNickName(user)).queue();
-    			names.remove(0);
-    		} else if (args[0].equalsIgnoreCase("hello")) {
-    			if (args.length < 2) return;
-    			if (args[1].equalsIgnoreCase("bot")) {
-    				tc.sendMessage("Hello, Sir!").queue();
-    			} else if (args[1].equalsIgnoreCase("human")) {
-    				tc.sendMessage("I'M NOT HUMAN").queue();
-    			}
-    		}
-    		else if(args[0].equalsIgnoreCase("commands"))
-    		{
-    			tc.sendMessage("!commands- Lists all the commands").queue();
-    			tc.sendMessage("!quote- Lists a random Yubaba quote!").queue();
-    			tc.sendMessage("!nick- Sets random? nickname").queue();
-    			tc.sendMessage("!nick Username- Sets someone elses username!").queue();
-    			tc.sendMessage("!gif- Plays a Spirited away gif").queue();
-    			tc.sendMessage("!hello- Yubaba says hi!").queue();
-    			tc.sendMessage("!hello bot- Yubaba says hi to a bot!").queue();
-    			tc.sendMessage("!hello human- Yubaba says hi to a human!").queue();
-    		}
-    		else if(args[0].equalsIgnoreCase("gif"))
-    		{
-
-    			event.getMember().modifyNickname("YUBABA").queue();
-    		}
-    	}
+        if( "summonYubaba".equals(msg.getContentRaw())){
+            tc.sendMessage("konnnichiwa, " + user.getAsMention()).queue();
+            String newName = user.getName();
+            int subIndex=0;
+            for(int i=0;i<newName.length();i++){
+                if(newName.charAt(i)=='a'||newName.charAt(i)=='i'||newName.charAt(i)=='u'
+                        ||newName.charAt(i)=='e'||newName.charAt(i)=='o'){
+                    subIndex=i+1;
+                    break;
+                }
+            }
+            event.getMember().modifyNickname(newName.substring(0,subIndex)).queue();
+        }
     }
 }
