@@ -36,13 +36,28 @@ public class Bot extends ListenerAdapter
     		if (args.length <= 0) return;
     		if (args[0].equalsIgnoreCase("test")) {
     			tc.sendMessage("Hello, " + user.getAsMention()).queue();
-    		} else if (args[0].equalsIgnoreCase("hello")) {
-    			if (args.length < 2) return;
-    			if (args[1].equalsIgnoreCase("bot")) {
+    		} 
+    		else if (args[0].equalsIgnoreCase("hello")) 
+    		{
+    			if (args.length < 2) 
+    				return;
+    			if (args[1].equalsIgnoreCase("bot")) 
+    			{
     				tc.sendMessage("Hello, Sir!").queue();
-    			} else if (args[1].equalsIgnoreCase("human")) {
+    			} else if (args[1].equalsIgnoreCase("human")) 
+    			{
     				tc.sendMessage("I'M NOT HUMAN!").queue();
     			}
+    		}
+    		else if(args[0].equalsIgnoreCase("commands"))
+    		{
+    			tc.sendMessage("!commands- Lists all the commands").queue();
+    			tc.sendMessage("!quote- Lists a random Yubaba quote!").queue();
+    			tc.sendMessage("!nick- Sets random? nickname").queue();
+    			tc.sendMessage("!nick Username- Sets someone elses username!").queue();
+    			tc.sendMessage("!gif- Plays a Spirited away gif").queue();
+    			tc.sendMessage("!hello- Yubaba says hi!").queue();
+    			
     		}
     	}
     }
