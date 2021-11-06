@@ -58,7 +58,6 @@ public class Bot extends ListenerAdapter
     				tc.sendMessage("I'M NOT HUMAN").queue();
     			}
     		}
-<<<<<<< HEAD
     		else if(args[0].equalsIgnoreCase("commands"))
     		{
     			tc.sendMessage("!commands- Lists all the commands").queue();
@@ -75,10 +74,6 @@ public class Bot extends ListenerAdapter
 
     			event.getMember().modifyNickname("YUBABA").queue();
     		}
-
-    		
-=======
->>>>>>> main
     	}
     }
 }
