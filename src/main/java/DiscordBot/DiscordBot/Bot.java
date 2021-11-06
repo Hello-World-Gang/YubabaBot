@@ -47,11 +47,10 @@ public class Bot extends ListenerAdapter
                 if(newName.charAt(i)=='a'||newName.charAt(i)=='i'||newName.charAt(i)=='u'
                         ||newName.charAt(i)=='e'||newName.charAt(i)=='o'){
                     subIndex=i+1;
-                    System.out.println(subIndex);
                     break;
                 }
             }
-            event.getMember().modifyNickname(user.getName().substring(0,1)).queue();
+            event.getMember().modifyNickname(newName.substring(0,subIndex)).queue();
         }
     }
 }
