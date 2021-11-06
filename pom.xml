@@ -30,6 +30,12 @@
     	<artifactId>JDA</artifactId>
     	<version>4.3.0_340</version>
 	</dependency>
+  <dependency>
+    <groupId>com.discord4j</groupId>
+    <artifactId>discord4j-core</artifactId>
+    <version>3.2.0</version>
+  </dependency>
+
   </dependencies>
 	<repositories>
 		<repository>

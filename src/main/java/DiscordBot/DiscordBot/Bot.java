@@ -60,6 +60,11 @@ public class Bot extends ListenerAdapter
     			tc.sendMessage("!hello bot- Yubaba says hi to a bot!").queue();
     			tc.sendMessage("!hello human- Yubaba says hi to a human!").queue();
     		}
+    		else if(args[0].equalsIgnoreCase("gif"))
+    		{
+
+    			event.getMember().modifyNickname("YUBABA").queue();
+    		}
 
     		
     	}
