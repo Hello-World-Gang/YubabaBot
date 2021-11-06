@@ -29,18 +29,13 @@ public class Bot extends ListenerAdapter
     	System.out.println(event.getJDA().getToken());
     }
     
-    public String getNickName(User user) {
-    	String nickname = user.getAsMention().toString();
-        return nickname.substring(0, 1);
-    }
-    
     public void onMessageReceived(MessageReceivedEvent event) {
     	User user = event.getAuthor();
     	TextChannel tc = event.getTextChannel();
     	Message msg = event.getMessage();
     	if (user.isBot()) return;
-        if( "summonYubaba".equals(msg.getContentRaw())){
-            tc.sendMessage("konnnichiwa, " + user.getAsMention()).queue();
+        if( "summonYubaba-basan".equals(msg.getContentRaw())){
+            tc.sendMessage("Hello, " + user.getAsMention()).queue();
             String newName = user.getName();
             int subIndex=0;
             for(int i=0;i<newName.length();i++){
@@ -50,7 +45,11 @@ public class Bot extends ListenerAdapter
                     break;
                 }
             }
+            tc.sendMessage("You're "+newName+", huh?  What an extravagant name.").queue();
+            tc.sendMessage("Thanks for signing up.").queue();
             event.getMember().modifyNickname(newName.substring(0,subIndex)).queue();
+            tc.sendMessage("From now on, you'll be "+newName.substring(0,subIndex)).queue();
+            tc.sendMessage(newName+". You got that? "+"You're "+newName+". Answer me, "+newName+"!!").queue();
         }
     }
 }
