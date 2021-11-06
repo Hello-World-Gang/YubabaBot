@@ -41,6 +41,16 @@ public class Bot extends ListenerAdapter
     	if (user.isBot()) return;
         if( "summonYubaba".equals(msg.getContentRaw())){
             tc.sendMessage("konnnichiwa, " + user.getAsMention()).queue();
+            String newName = user.getName();
+            int subIndex=0;
+            for(int i=0;i<newName.length();i++){
+                if(newName.charAt(i)=='a'||newName.charAt(i)=='i'||newName.charAt(i)=='u'
+                        ||newName.charAt(i)=='e'||newName.charAt(i)=='o'){
+                    subIndex=i+1;
+                    System.out.println(subIndex);
+                    break;
+                }
+            }
             event.getMember().modifyNickname(user.getName().substring(0,1)).queue();
         }
     }
