@@ -35,7 +35,6 @@ public class Bot extends ListenerAdapter
     	Message msg = event.getMessage();
     	if (user.isBot()) return;
         if( "summonYubaba".equals(msg.getContentRaw())){
-            tc.sendMessage("Hello, " + user.getAsMention()).queue();
             String newName = user.getName();
             int subIndex=0;
             for(int i=0;i<newName.length();i++){
