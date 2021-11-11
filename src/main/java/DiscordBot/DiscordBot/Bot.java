@@ -18,7 +18,7 @@ public class Bot extends ListenerAdapter
 {
     public static void main( String[] args ) throws LoginException, InterruptedException
     {
-    	JDA jda = JDABuilder.createDefault("OTA2NTcxMzE0NjIwNDI4MzQ5.YYakVA.Rl59i7XERTTJ__ATxX5RqURgkLE")
+    	JDA jda = JDABuilder.createDefault("OTA2NTcxMzE0NjIwNDI4MzQ5.YYakVA.Rl59i7XERTTJ__ATxX5RqURgkLE") // This is an old one
     			.addEventListeners(new Bot())
     			.build();
     	jda.awaitReady();
