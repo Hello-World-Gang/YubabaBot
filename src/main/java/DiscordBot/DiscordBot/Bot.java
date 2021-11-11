@@ -1,8 +1,5 @@
 package DiscordBot.DiscordBot;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.security.auth.login.LoginException;
 
 import net.dv8tion.jda.api.JDA;
@@ -18,7 +15,7 @@ public class Bot extends ListenerAdapter
 {
     public static void main( String[] args ) throws LoginException, InterruptedException
     {
-    	JDA jda = JDABuilder.createDefault("OTA2NTcxMzE0NjIwNDI4MzQ5.YYakVA.Rl59i7XERTTJ__ATxX5RqURgkLE")
+    	JDA jda = JDABuilder.createDefault("OTA2NTcxMzE0NjIwNDI4MzQ5.YYakVA.Rl59i7XERTTJ__ATxX5RqURgkLE") // This token is an old one.
     			.addEventListeners(new Bot())
     			.build();
     	jda.awaitReady();
@@ -34,7 +31,7 @@ public class Bot extends ListenerAdapter
     	TextChannel tc = event.getTextChannel();
     	Message msg = event.getMessage();
     	if (user.isBot()) return;
-        if( "summonYubaba".equals(msg.getContentRaw())){
+        if( "summon Yubaba".equals(msg.getContentRaw())){
             String newName = user.getName();
             int subIndex=0;
             for(int i=0;i<newName.length();i++){
